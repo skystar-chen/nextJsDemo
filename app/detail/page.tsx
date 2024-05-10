@@ -1,4 +1,6 @@
+'use client';
 import React, { FC, memo } from 'react';
+import { useRouter } from 'next/navigation';
 import './index.scss';
 
 interface IndexProps {
@@ -10,11 +12,16 @@ const DEFAUTL_PROPS: IndexProps = {
 const Index: FC<IndexProps> = (props) => {
   const {
   } = props;
+  const router = useRouter();
 
   return (
     <section className="detail-container">
-      detail
-      <p>text</p>
+      <p>detail</p>
+      <button
+        onClick={() => {
+          router.back();
+        }}
+      >back</button>
     </section>
   );
 }
